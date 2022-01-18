@@ -6,7 +6,6 @@ const {StringDecoder} = require('string_decoder');
 const handler = {};
 
 handler.handleReqRes = (req, res)=> {
-    // request handling
     // get the url and parse it
     const parsedUrl = url.parse(req.url, true);
     const path = parsedUrl.path;
@@ -33,6 +32,5 @@ handler.handleReqRes = (req, res)=> {
 
 
 };
-
 
 module.exports = handler;
