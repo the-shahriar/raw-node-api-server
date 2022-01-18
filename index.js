@@ -1,7 +1,6 @@
 // dependencies
 const http = require('http');
-const url = require('url');
-const {StringDecoder} = require('string_decoder');
+const {handleReqRes} = require('./helpers/handleReqRes');
 
 // app object - model scaffolding
 const app = {};
@@ -19,32 +18,9 @@ app.createServer = () => {
     });
 }
 
-// handle Request Response
-app.handleReqRes = (req, res)=> {
-    // request handling
-    // get the url and parse it
-    const parsedUrl = url.parse(req.url, true);
-    const path = parsedUrl.path;
-    const trimedPath = path.replace(/^\/+|\/+$/g, '');
-    
-    const method = req.method.toLowerCase();
-    const queryString = parsedUrl.query;
-    const headers = req.headers;
-    
-    const decoder = new StringDecoder('utf-8');
-    const realData = '';
+app.handleReqRes = handleReqRes;
 
-    req.on('data', (buffer)=> {
-        realData += decoder.write(buffer);
-    })
 
-    req.on('end', ()=> {
-        realData += decoder.end();
-    })
-
-    // response
-    res.end('Hello prog');
-};
 
 // start seever
 app.createServer();
