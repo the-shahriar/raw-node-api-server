@@ -8,9 +8,25 @@ const data = require('./lib/data');
 const app = {};
 
 // testing file system
-data.create('test', 'newFile', {'name': 'Bangladesh', 'language': 'Bangla'}, (error)=> {
-    console.log('error was', error);
-})
+// write data
+// data.create('test', 'newFile', {'name': 'Bangladesh', 'language': 'Bangla'}, (error)=> {
+//     console.log('error was', error);
+// });
+
+// read data
+// data.read('test', 'newFile', (error, data)=> {
+//     console.log(data, error);
+// });
+
+// update data
+// data.update('test', 'newFile', {'name': 'England', 'language': 'English'}, (error)=> {
+//     console.log('Error was:', error);
+// });
+
+// delete file
+data.delete('test', 'newFile', (error)=> {
+        console.log('Error was:', error);
+});
 
 // create server
 app.createServer = () => {
